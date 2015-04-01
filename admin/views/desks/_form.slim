@@ -1,0 +1,49 @@
+- error = @desk.errors.key?(:name) && @desk.errors[:name].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :name, :class => 'control-label'
+  div class='controls'
+    = f.text_field :name, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    span class='help-inline' = error ? f.error_message_on(:name, :class => 'text-error') : pat(:example)
+- error = @desk.errors.key?(:domain) && @desk.errors[:domain].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :domain, :class => 'control-label'
+  div class='controls'
+    = f.text_field :domain, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:domain, :class => 'text-error') : pat(:example)
+- error = @desk.errors.key?(:alias) && @desk.errors[:alias].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :alias, :class => 'control-label'
+  div class='controls'
+    = f.text_field :alias, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:alias, :class => 'text-error') : pat(:example)
+- error = @desk.errors.key?(:contact_email) && @desk.errors[:contact_email].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :contact_email, :class => 'control-label'
+  div class='controls'
+    = f.text_field :contact_email, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:contact_email, :class => 'text-error') : pat(:example)
+- error = @desk.errors.key?(:api_user) && @desk.errors[:api_user].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :api_user, :class => 'control-label'
+  div class='controls'
+    = f.text_field :api_user, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:api_user, :class => 'text-error') : pat(:example)
+- error = @desk.errors.key?(:api_key) && @desk.errors[:api_key].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :api_key, :class => 'control-label'
+  div class='controls'
+    = f.text_field :api_key, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:api_key, :class => 'text-error') : pat(:example)
+- error = @desk.errors.key?(:active) && @desk.errors[:active].count > 0
+fieldset class='control-group#{error ? ' has-error' : ''}'
+  = f.label :active, :class => 'control-label'
+  div class='controls'
+    = f.check_box :active, :class => 'form-control input-large input-with-feedback'
+    span class='help-inline' = error ? f.error_message_on(:active, :class => 'text-error') : pat(:example)
+
+div class="form-actions"
+  = f.submit pat(:save), :class => 'btn btn-primary'
+  |&nbsp;
+  = f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  |&nbsp;
+  = link_to pat(:cancel), url(:desks, :index), :class => 'btn btn-default'
